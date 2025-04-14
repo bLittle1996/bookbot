@@ -1,4 +1,6 @@
+from sys import argv
 from stats import count_words, count_characters
+
         
 PRINT_WIDTH = 40
 
@@ -29,8 +31,13 @@ def analyze_book(filepath):
         
         
 def main():
+    if len(argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        return exit(1)
+
+
     print(" BOOK BOT ".center(PRINT_WIDTH, "="))
-    analyze_book("books/frankenstein.txt")
+    analyze_book(argv[1])
     print(" END ".center(PRINT_WIDTH, "="))
 
 
